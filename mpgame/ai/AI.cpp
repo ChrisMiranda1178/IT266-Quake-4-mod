@@ -1128,7 +1128,7 @@ bool idAI::DoDormantTests ( void ) {
 		return false;
 	}
 	return idActor::DoDormantTests ( );
-}
+}	//place to add health regen
 
 /*
 =====================

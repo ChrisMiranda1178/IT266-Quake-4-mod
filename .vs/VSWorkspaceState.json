@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\framework",
+    "\\game",
+    "\\game\\physics",
+    "\\game\\vehicle",
+    "\\mpgame",
+    "\\mpgame\\ai",
+    "\\mpgame\\physics",
+    "\\mpgame\\vehicle",
+    "\\mpgame\\weapon"
+  ],
+  "SelectedNode": "\\game\\Player.cpp",
+  "PreviewInSolutionExplorer": false
+}

@@ -56,6 +56,7 @@ const int	ASYNC_PLAYER_INV_CLIP_BITS = -7;							// -7 bits to cover the range [
 const int	ASYNC_PLAYER_INV_WPMOD_BITS = 3;							// 3 bits (max of 3 mods per gun)
 // NOTE: protocol 69 used 6 bits, but that's only used for client -> server traffic, so doesn't affect backwards protocol replay compat
 const int	IMPULSE_NUMBER_OF_BITS		= 8;							// allows for 2<<X impulses
+const int	regeneration = 5;
 
 #define MAX_CONCURRENT_VOICES	3
 
@@ -355,6 +356,8 @@ public:
 	int						nextAmmoRegenPulse[ MAX_AMMO ];	// time when ammo will regenerate
 	int						nextArmorPulse;		// time when armor will tick down
 	bool					hiddenWeapon;		// if the weapon is hidden ( in noWeapons maps )
+	float					m_fRegenRemander; //Health Regen Mod
+	int						gEvilImpulse101;
 
 	// mp stuff
 	int						spectator;

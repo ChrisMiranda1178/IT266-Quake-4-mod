@@ -1333,8 +1333,8 @@ idPlayer::idPlayer() {
 
 	itemCosts = NULL;
 
-	teamHealthRegen		= NULL;
-	teamHealthRegenPending	= false;
+	teamHealthRegen		= 1;
+	teamHealthRegenPending	= true;
 	teamAmmoRegen			= NULL;
 	teamAmmoRegenPending	= false;
 	teamDoubler			= NULL;		
@@ -2813,7 +2813,9 @@ void idPlayer::SpawnToPoint( const idVec3 &spawn_origin, const idAngles &spawn_a
 	
 	if ( inventory.armor > inventory.maxarmor ) {
 		nextArmorPulse = gameLocal.time + ARMOR_PULSE;
-	}		
+	}
+	//mod addition
+	
 
 	fl.noknockback = false;
 	// stop any ragdolls being used
@@ -9413,7 +9415,14 @@ void idPlayer::Think( void ) {
 		}
 
 	}
-
+	if (health < maxHealth)
+	{
+		health += regeneration * Time.deltaTime;
+		if (health > maxHealth)
+		{
+			health = maxHealth;
+		}
+	}
 	if ( IsInVehicle ( ) ) {	
 		vehicleController.SetInput ( usercmd, viewAngles );
 				
@@ -9640,6 +9649,14 @@ void idPlayer::Think( void ) {
 		inBuyZone = false;
 
 	inBuyZonePrev = false;
+	//add health regen here
+	public float maxHealth = 100;
+	public float health = 100;
+	if (health < maxHealth) {
+		health += 5;
+	}if (health > maxHealth) {
+			health = maxHealth;
+	}
 }
 
 /*
